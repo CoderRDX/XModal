@@ -37,6 +37,7 @@ const Modal = ({ show, handleClose }) => {
       return;
     }
 
+  
     setFormData({
       username: "",
       email: "",
@@ -44,12 +45,14 @@ const Modal = ({ show, handleClose }) => {
       dob: "",
     });
 
-  
     handleClose();
   };
 
+
+  if (!show) return null;
+
   return (
-    <div className={`modal ${show ? "show" : ""}`} onClick={handleClose}>
+    <div className={`modal ${show ? 'show' : ''}`} onClick={handleClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>Fill Details</h2>
         <form onSubmit={handleSubmit}>
@@ -115,11 +118,11 @@ const Modal = ({ show, handleClose }) => {
   );
 };
 
-
 export default function App() {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
+    console.log("Opening modal");
     setShowModal(true);
   };
 
